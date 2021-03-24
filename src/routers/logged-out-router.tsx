@@ -1,13 +1,18 @@
-import { isLoggedInVar } from "../apollo";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { CreateAccount } from "../pages/create-account";
+import { Login } from "../pages/login";
 
 export const LoggedOutRouter = () => {
-  const onClick = () => {
-    isLoggedInVar(true);
-  };
   return (
-    <div>
-      <h1>Logged Out</h1>
-      <button onClick={onClick}>Click to login</button>
-    </div>
+    <Router>
+      <Switch>
+        <Route path='/create-account'>
+          <CreateAccount />
+        </Route>
+        <Route path='/'>
+          <Login />
+        </Route>
+      </Switch>
+    </Router>
   );
 };
